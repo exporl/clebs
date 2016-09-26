@@ -13,7 +13,7 @@ clebsCheck(dot) {
 clebsInstall(dot) {
     win32 {
         installfiles *= dot.exe gvc.dll cdt.dll ltdl.dll zlib1.dll Pathplan.dll cgraph.dll libexpat.dll gvplugin_core.dll gvplugin_dot_layout.dll config6
-        for(installfile, installfiles):dotbininstall.files = $${DOTBINDIR}/$${installfile}
+        for(installfile, installfiles):dotbininstall.files += $${DOTBINDIR}/$${installfile}
         dotbininstall.path = $${BINDIR}/dot
         INSTALLS *= dotbininstall
     }
