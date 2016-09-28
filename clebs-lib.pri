@@ -430,14 +430,14 @@ android {
     # Uses INSTALL_ROOT instead of PREFIX because target path is hardcoded
     isEmpty(CONFDIR):CONFDIR = /etc
     isEmpty(DATADIR):DATADIR = /assets
-    isEmpty(DOCDIR):DOCDIR = /assets
-    isEmpty(APPDIR):APPDIR = /assets
-    isEmpty(MANDIR):MANDIR = /assets
+    isEmpty(DOCDIR):DOCDIR = /assets/doc
+    isEmpty(APPDIR):APPDIR = /assets/applications
+    isEmpty(MANDIR):MANDIR = /assets/man
     isEmpty(ICONDIR):ICONDIR = /assets/icons
-    isEmpty(BINDIR):BINDIR = /libs/armeabi
-    isEmpty(LIBDIR):LIBDIR = /libs/armeabi
+    isEmpty(BINDIR):BINDIR = /libs/armeabi-v7a
+    isEmpty(LIBDIR):LIBDIR = /libs/armeabi-v7a
     isEmpty(INCLUDEDIR):INCLUDEDIR = /assets/include
-    isEmpty(PLUGINDIR):PLUGINDIR = /libs/armeabi
+    isEmpty(PLUGINDIR):PLUGINDIR = /libs/armeabi-v7a
 } else:unix {
     isEmpty(PREFIX):PREFIX = /usr/local
     isEmpty(CONFDIR):CONFDIR = /etc
@@ -453,9 +453,9 @@ android {
 } else:win32 {
     isEmpty(PREFIX):PREFIX = $${DESTDIR}-installed
     isEmpty(CONFDIR):CONFDIR = $$PREFIX/etc
-    isEmpty(DATADIR):DATADIR = $$PREFIX/share
+    isEmpty(DATADIR):DATADIR = $$PREFIX
     isEmpty(DOCDIR):DOCDIR = $$PREFIX/doc
-    isEmpty(MANDIR):MANDIR = $$PREFIX/share
+    isEmpty(MANDIR):MANDIR = $$PREFIX/man
     isEmpty(ICONDIR):ICONDIR = $$PREFIX/icons
     isEmpty(BINDIR):BINDIR = $$PREFIX/bin
     isEmpty(LIBDIR):LIBDIR = $$PREFIX/bin
