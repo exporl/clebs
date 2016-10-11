@@ -372,6 +372,25 @@ defineTest(clebsAddTestTarget) {
     export(QMAKE_EXTRA_TARGETS)
 }
 
+defineTest(clebsAddFormatTarget) {
+    format_clang_format.commands = -@$(COPY) clebs/.clang-format .;
+    export(format_clang_format.commands)
+    for(formatdir, CLEBS_SUBDIRS) {
+        formatdir ~= s/([-_]|\\+.*)$//
+        target = $${formatdir}
+        target ~= s/[^A-Za-z]/_/
+        unix:eval(format_$${target}.commands = -@find $${formatdir} -iname '*.cpp' -o -iname '*.h' -exec clang-format -i {} \;)
+        export(format_$${target}.commands)
+        eval(format_$${target}.depends *= format_clang_format)
+        export(format_$${target}.depends)
+        QMAKE_EXTRA_TARGETS *= format_$${target}
+        format.depends *= format_$${target}
+    }
+    export(format.depends)
+    QMAKE_EXTRA_TARGETS *= format format_clang_format
+    export(QMAKE_EXTRA_TARGETS)
+}
+
 # General settings =============================================================
 
 # Base dir as needed by the .pri files and localconfig.pri
@@ -537,6 +556,7 @@ exists("$${BASEDIR}/projectconfig.pri"):include("$${BASEDIR}/projectconfig.pri")
         message("----------------------------------------------")
     }
     clebsAddTestTarget()
+    clebsAddFormatTarget()
 }
 
 # Linking against libraries ====================================================
