@@ -3,7 +3,7 @@ clebsCheck(python) {
         system(python --version 2> NUL):CLEBS_DEPENDENCIES *= python
     }
 
-    unix {
+    unix:!android {
         system(which python 2>&1 > /dev/null):CLEBS_DEPENDENCIES *= python
     }
 }
