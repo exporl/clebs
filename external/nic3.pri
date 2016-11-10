@@ -21,7 +21,17 @@ clebsDependency(nic3) {
 
 clebsInstall(nic3) {
     win32 {
-        nic3bininstall.files = $$NIC3BINARIESDIR/_nic3.pyd $$NIC3BINARIESDIR/boost_python.dll $$NIC3BINARIESDIR/ftd2xx.dll
+        installfiles *= _nic3.pyd
+        # NIC 3.1
+        installfiles *= boost_python.dll
+        installfiles *= ftd2xx.dll
+        # NIC 3.2
+        installfiles *= boost_python-vc120-mt-1_55.dll
+        installfiles *= RfGenXsDriver.dll
+
+        for(installfile, installfiles) {
+            nic3bininstall.files *= $$NIC3BINARIESDIR/$${installfile}
+        }
         nic3bininstall.path = $$BINDIR
 
         nic3cochlearinstall.files = $$NIC3PYTHONDIR/cochlear/*.py
