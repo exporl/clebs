@@ -25,7 +25,7 @@ clebsDependency(xml2) {
 
         INCLUDEPATH *= $${ICONVROOT}/include
         LIBS *= -L$${ICONVLIBDIR} -l$${ICONVLIB}
-    }    
+    }
 
     unix {
         PKGCONFIG *= libxml-2.0
