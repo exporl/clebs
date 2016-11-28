@@ -51,6 +51,7 @@ defineTest(clebsFixupSubdirs) {
         unix:deps *= $$fromfile("$${fullsubdir}/$${pro}.pro", "unix_CLEBS")
         libs = $$clebsInternalLibDependencies($$deps)
         external = $$clebsExternalDependencies($$deps)
+        !isEmpty(libs):external *= -chrpath
         missing = $$clebsMissingDependencies($$external $$libs)
         CLEBS_EXTERNALDEPS *= $$external
         contains(CLEBS_DISABLED, $$subdir) {
