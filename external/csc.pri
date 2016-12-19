@@ -14,8 +14,7 @@ clebsDependency(csc) {
     # Make qmake happy
     CONFIG -= gdb_dwarf_index embed_manifest_exe
     win32 {
-        QMAKE_LINK = rem
-        QMAKE_POST_LINK += @echo compiling cs sources for $(TARGET) && $$CSCOMPILER $(LFLAGS) /out:$(DESTDIR_TARGET) $(OBJECTS)
+        QMAKE_LINK = $$CSCOMPILER
     }
     unix {
         TARGET = $${TARGET}.exe
@@ -26,9 +25,14 @@ clebsDependency(csc) {
     QMAKE_LFLAGS =
     QMAKE_LFLAGS_EXE =
     QMAKE_LFLAGS_CONSOLE =
+    QMAKE_LFLAGS_WINDOWS =
     QMAKE_LFLAGS_DEBUG =
     QMAKE_LFLAGS_RELEASE =
     QMAKE_LFLAGS_RELEASE_WITH_DEBUGINFO =
+    QMAKE_LIBS_QT_ENTRY =
+    QMAKE_LIBS =
+    LIBS =
+    QT -= core
 
     csc.input = CS_SOURCES
     csc.output = $$OBJECTS_DIR/${QMAKE_FILE_NAME}
