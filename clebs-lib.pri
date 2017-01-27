@@ -435,6 +435,9 @@ CONFIG -= debug_and_release
 QT -= gui
 DEFINES += QT_NO_CAST_FROM_ASCII QT_NO_CAST_TO_ASCII
 
+# Deprecate anything before the Qt version in trusty
+DEFINES *= Q_DISABLE_DEPRECATED_BEFORE=0x050200
+
 android:DIRECTORY_PREFIX=android-
 CONFIG(release, debug|release) {
     DESTDIR = $${BASEDIR}/bin/$${DIRECTORY_PREFIX}release
