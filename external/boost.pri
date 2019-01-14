@@ -1,7 +1,7 @@
 clebsCheck(boost) {
     win32 {
         isEmpty(BOOSTROOT):BOOSTROOT = $$BASEDIR/../api/boost
-        isEmpty(BOOSTINCLUDEDIR):BOOSTINCLUDEDIR = $${BOOSTROOT}/include/boost-1_33_1
+        isEmpty(BOOSTINCLUDEDIR):BOOSTINCLUDEDIR = $${BOOSTROOT}
 
         exists($${BOOSTINCLUDEDIR}/boost):CLEBS_DEPENDENCIES *= boost
     }
