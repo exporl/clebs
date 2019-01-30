@@ -16,6 +16,7 @@ clebsCheck(protobuf) {
 
     unix {
         PROTOBUFPROTOC = protoc
+        PROTOBUFPYTHONPROTOC = protoc
         system(pkg-config protobuf-lite):system(which $${PROTOBUFPROTOC} 2>&1 > /dev/null):CLEBS_DEPENDENCIES *= protobuf
     }
 }
