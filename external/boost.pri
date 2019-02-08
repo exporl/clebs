@@ -7,12 +7,19 @@ clebsCheck(boost) {
     }
 
     unix {
-        exists(/usr/include/boost):CLEBS_DEPENDENCIES *= boost
+        isEmpty(BOOSTINCLUDEDIR) {
+            exists(/usr/include/boost):CLEBS_DEPENDENCIES *= boost
+        } else {
+            exists($${BOOSTINCLUDEDIR}/boost):CLEBS_DEPENDENCIES *= boost
+        }
     }
 }
 
 clebsDependency(boost) {
     win32 {
+        INCLUDEPATH *= $${BOOSTINCLUDEDIR}
+    }
+    unix {
         INCLUDEPATH *= $${BOOSTINCLUDEDIR}
     }
 }
