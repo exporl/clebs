@@ -1,13 +1,13 @@
 clebsCheck(protobuf) {
     win32 {
-        isEmpty(PROTOBUFROOT):PROTOBUFROOT = $$BASEDIR/../api/protobuf-3.6.1
+        isEmpty(PROTOBUFROOT):PROTOBUFROOT = $$BASEDIR/../api/protobuf-cpp-3.6.1
         isEmpty(PROTOBUFLIB_RELEASE):PROTOBUFLIB_RELEASE = libprotobuf-lite
         isEmpty(PROTOBUFLIB_DEBUG):PROTOBUFLIB_DEBUG = libprotobuf-lited
         isEmpty(PROTOBUFLIBDIR):PROTOBUFLIBDIR = $${PROTOBUFROOT}/lib
         isEmpty(PROTOBUFINCLUDEDIR):PROTOBUFINCLUDEDIR = $${PROTOBUFROOT}/include
         isEmpty(PROTOBUFPROTOC):PROTOBUFPROTOC = $${PROTOBUFROOT}/bin/protoc.exe
 
-        isEmpty(PROTOBUFPYTHONROOT):PROTOBUFPYTHONROOT = $$BASEDIR/../api/protobuf-2.5.0
+        isEmpty(PROTOBUFPYTHONROOT):PROTOBUFPYTHONROOT = $$BASEDIR/../api/protobuf-python-2.5.0
         isEmpty(PROTOBUFPYTHONDIR):PROTOBUFPYTHONDIR = $${PROTOBUFPYTHONROOT}/python-lib
         isEmpty(PROTOBUFPYTHONPROTOC):PROTOBUFPYTHONPROTOC = $${PROTOBUFPYTHONROOT}/protoc.exe
 
